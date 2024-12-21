@@ -2,7 +2,7 @@ package Vetor_testes;
 
 import vetor.Vetor;
 
-public class Aula3 {
+public class AddingElement {
     public static void main(String[] args) {
         Vetor vetor = new Vetor(2);
     try {
