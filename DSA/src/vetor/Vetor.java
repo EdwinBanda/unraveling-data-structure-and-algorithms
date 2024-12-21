@@ -1,5 +1,7 @@
 package vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
     private String[] elementos;
     private int arrSize;
@@ -25,4 +27,32 @@ public class Vetor {
             throw new Exception("Vetor is full!");
         }
     }
+
+    public int arrsize(){
+        return this.arrSize;
+    }
+    //Print the elements inside the vector without the blank spaces (Recreate the .toString() method)
+    public String toString(){
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for(int i = 0; i < this.arrSize-1;i++){
+            s.append(this.elementos[i]);
+            s.append(',');
+        }
+        if(this.arrSize > 0){
+            s.append(this.elementos[this.arrSize-1]);
+        }
+        s.append("]");
+
+        return s.toString();
+    }
+    //Get element by position
+    public String getElement(int position){
+        if(!(position >= 0 && position < arrSize)){
+            throw new IllegalArgumentException("Invalid position!");
+
+        }
+            return this.elementos[position];
+    }
+
 }
