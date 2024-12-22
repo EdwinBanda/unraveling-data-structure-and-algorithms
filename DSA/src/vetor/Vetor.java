@@ -20,6 +20,7 @@ public class Vetor {
 //        }
 //    }
     public void adding(String element) throws Exception{
+        this.addCapacity();
         if(this.arrSize < this.elementos.length){
             this.elementos[this.arrSize] = element;
             this.arrSize++;
@@ -53,6 +54,42 @@ public class Vetor {
 
         }
             return this.elementos[position];
+    }
+
+    //Verify if element exists in array
+    public int doExist(String element){
+        for(int i = 0; i < this.arrSize; i++){
+            if(this.elementos[i].equals(element)){
+                return i; //Returns the position of the element
+            }
+        }
+        return -1; //Position does not exist
+    }
+
+    //Add Element in any position of the array
+    public void addInAnyPos(String elem, int position){
+        if(!(position >= 0 && position < arrSize)){
+            throw new IllegalArgumentException("Invalid position!");
+
+        }
+        //Move elements
+        this.addCapacity();
+        for(int i = this.arrSize-1; i >= position; i--){
+            this.elementos[i+1] = this.elementos[i];
+        }
+        this.elementos[position] = elem;
+        this.arrSize++;
+    }
+
+    //Add capacity of array
+    private void addCapacity(){
+        if(this.arrSize == this.elementos.length){
+            String [] newElements = new String[this.elementos.length * 2];
+            for(int i = 0; i < this.arrSize; i++){
+                newElements[i] = this.elementos[i];
+            }
+            this.elementos = newElements;
+        }
     }
 
 }
