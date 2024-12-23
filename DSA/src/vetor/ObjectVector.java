@@ -1,17 +1,15 @@
 package vetor;
 
-import java.util.Arrays;
-
-public class Vetor {
-    private String[] elementos;
+public class ObjectVector {
+    private Object[] elementos;
     private int arrSize;
 
-    public Vetor(int capacidade){
-        this.elementos = new String[capacidade];
+    public ObjectVector(int capacidade){
+        this.elementos = new Object[capacidade];
         this.arrSize = 0;
     }
     //Adding elements inside a vector
-//    public void adding(String element){
+//    public void adding(Object element){
 //        for(int i =0; i < elementos.length; i++){
 //            if(elementos[i] == null){
 //                this.elementos[i] = element;
@@ -19,7 +17,7 @@ public class Vetor {
 //            }
 //        }
 //    }
-    public void adding(String element) throws Exception{
+    public void adding(Object element) throws Exception{
         this.addCapacity();
         if(this.arrSize < this.elementos.length){
             this.elementos[this.arrSize] = element;
@@ -48,12 +46,12 @@ public class Vetor {
         return s.toString();
     }
     //Get element by position
-    public String getElement(int position){
+    public Object getElement(int position){
         if(!(position >= 0 && position < arrSize)){
             throw new IllegalArgumentException("Invalid position!");
 
         }
-            return this.elementos[position];
+        return this.elementos[position];
     }
 
     //Verify if element exists in array
@@ -67,7 +65,7 @@ public class Vetor {
     }
 
     //Add Element in any position of the array
-    public void addInAnyPos(String elem, int position){
+    public void addInAnyPos(Object elem, int position){
         if(!(position >= 0 && position < arrSize)){
             throw new IllegalArgumentException("Invalid position!");
 
@@ -84,7 +82,7 @@ public class Vetor {
     //Add capacity of array
     private void addCapacity(){
         if(this.arrSize == this.elementos.length){
-            String [] newElements = new String[this.elementos.length * 2];
+            Object [] newElements = new Object[this.elementos.length * 2];
             for(int i = 0; i < this.arrSize; i++){
                 newElements[i] = this.elementos[i];
             }
@@ -103,6 +101,4 @@ public class Vetor {
         }
         this.arrSize--;
     }
-
-    //
 }
