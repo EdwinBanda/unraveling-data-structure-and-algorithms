@@ -53,10 +53,9 @@ public class List<T> {
         return s.toString();
     }
     //Get element by position
-    public Object getElement(int position){
+    public T getElement(int position){
         if(!(position >= 0 && position < arrSize)){
             throw new IllegalArgumentException("Invalid position!");
-
         }
         return this.elementos[position];
     }
@@ -121,11 +120,32 @@ public class List<T> {
 
     //Last index of arrayLists
     public int lastIndex(T element){
+
         for(int i = this.arrSize-1; i >= 0; i--){
             if(this.elementos[i].equals(element)){
                 return i;
             }
         }
         return -1;
+    }
+
+    //Remove Element
+    public void removeElement(T element) throws Exception{
+//        int pos = this.getElement(element);
+        for(int i = 0; i < arrSize; i ++){
+            if(this.elementos[i].equals(element)){
+                this.removeAnyElement(i);
+            }
+        }
+    }
+
+    //Get element
+    public T get(int pos){
+        return this.getElement(pos);
+    }
+
+    //Clear all elements
+    public void clear(){
+        this.elementos = (T[]) new Object[this.elementos.length];
     }
 }

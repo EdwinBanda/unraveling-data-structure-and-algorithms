@@ -14,14 +14,15 @@ public class dinamicTypes {
             vetor.adding("L");
             vetor.adding("E");
             vetor.adding("A");
+            vetor.removeElement("J");
 //            vetor.adding(1);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         System.out.println(vetor);
-        boolean exist = vetor.containsElement("Element");
-        System.out.println(exist);
-        int Indexof = vetor.lastIndex("B");
-        System.out.println(Indexof);
+//        boolean exist = vetor.containsElement("Element");
+//        System.out.println(exist);
+//        int Indexof = vetor.lastIndex("B");
+//        System.out.println(vetor);
     }
 }
