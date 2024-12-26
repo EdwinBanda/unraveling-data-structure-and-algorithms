@@ -1,8 +1,8 @@
 package DSAbase;
 
 public class StaticDSA<T> {
-    private T[] elementos;
-    private int arrSize;
+    protected T[] elementos;
+    protected int arrSize;
 
     public StaticDSA(int capacidade){
         this.elementos = (T[]) new Object[capacidade];
@@ -37,7 +37,7 @@ public class StaticDSA<T> {
         this.arrSize++;
     }
 
-    private void addCapacity(){
+    protected void addCapacity(){
         if(this.arrSize == this.elementos.length){
             T [] newElements =(T[]) new Object[this.elementos.length * 2];
             for(int i = 0; i < this.arrSize; i++){
@@ -64,5 +64,10 @@ public class StaticDSA<T> {
         s.append("]");
 
         return s.toString();
+    }
+
+    //isEmpty
+    public boolean isEmpty(){
+        return this.arrSize == 0;
     }
 }
