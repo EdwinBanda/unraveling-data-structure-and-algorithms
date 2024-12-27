@@ -22,8 +22,5 @@ public class StackAPI {
         System.out.println(stack.peek());
         System.out.println(stack.pop());
 
-
-
-
     }
 }
