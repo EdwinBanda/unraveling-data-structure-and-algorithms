@@ -16,4 +16,11 @@ public class Queue<T> extends StaticDSA<T> {
         super.adding(element);
     }
 
+    public T firstElement(){
+        if(this.isEmpty()){
+            return null;
+        }
+        return this.elementos[0];
+    }
+
 }
