@@ -33,6 +33,4 @@ public class HanoiTower {
             hanoi(n-1,aux,destination,original);
         }
     }
-
-
 }
