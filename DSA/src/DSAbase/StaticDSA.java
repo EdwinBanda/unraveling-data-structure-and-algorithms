@@ -24,10 +24,10 @@ public class StaticDSA<T> {
     }
 
     public void addInAnyPos(T elem, int position){
-        if(!(position >= 0 && position < arrSize)){
-            throw new IllegalArgumentException("Invalid position!");
-
-        }
+//        if(!(position >= 0 && position < arrSize)){
+//            throw new IllegalArgumentException("Invalid position!");
+//
+//        }
         //Move elements
         this.addCapacity();
         for(int i = this.arrSize-1; i >= position; i--){
