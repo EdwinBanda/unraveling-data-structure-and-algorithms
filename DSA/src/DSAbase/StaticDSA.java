@@ -66,6 +66,17 @@ public class StaticDSA<T> {
         return s.toString();
     }
 
+    protected void removeAnyElement(int position){
+//        if(!(position >= 0 && position < arrSize)){
+//            throw new Exception("Position out of range");
+//        }
+
+        for(int i = position; i < this.arrSize-1; i++){
+            this.elementos[i] = this.elementos[i+1];
+        }
+        this.arrSize--;
+    }
+
     //isEmpty
     public boolean isEmpty(){
         return this.arrSize == 0;

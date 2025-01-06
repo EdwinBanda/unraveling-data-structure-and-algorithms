@@ -45,7 +45,7 @@ public class CustomersQueue {
         }
     }
 
-    public static void attendP(Queue<String> Queue){
+    public static void attendP(Queue<String> Queue)throws Exception{
         String currCustomer = Queue.unqueue();
         System.out.println(currCustomer+" Already attended!");
     }

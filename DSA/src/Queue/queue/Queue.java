@@ -23,12 +23,15 @@ public class Queue<T> extends StaticDSA<T> {
         return this.elementos[0];
     }
 
-    public T unqueue(){
-        for(int i = 0; i < this.arrSize-1; i++){
-            this.elementos[i] = this.elementos[i+1];
+    public T unqueue() {
+        final int POS = 0;
+        if(this.isEmpty()){
+            return null;
         }
-        this.arrSize--;
-        return this.elementos[arrSize];
+        T elementToRemove = this.elementos[POS];
+        this.removeAnyElement(POS);
+
+        return elementToRemove;
     }
 
 }
