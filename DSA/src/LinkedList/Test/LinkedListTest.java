@@ -7,7 +7,11 @@ public class LinkedListTest {
 
         LinkedList<Integer> list = new LinkedList<Integer>();
 
-        list.add(20);
+        list.add(1);
         System.out.println("Linkedlist size: "+ list.getSize());
+        list.add(2);
+        list.add(3);
+        System.out.println(list);
+
     }
 }
