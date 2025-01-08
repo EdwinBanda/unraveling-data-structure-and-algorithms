@@ -17,6 +17,18 @@ public class LinkedList<T> {
         this.size++;
     }
 
+    public void clean(){
+        for (Node<T> current = this.init; current != null;){
+            Node<T> next = current.getNext();
+            current.setElement(null);
+            current.setNext(null);
+            current = next;
+        }
+        this.init = null;
+        this.last = null;
+        this.size = 0;
+    }
+
     public int getSize(){
         return this.size;
     }

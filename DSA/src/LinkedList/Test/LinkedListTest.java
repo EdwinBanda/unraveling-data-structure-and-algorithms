@@ -12,6 +12,8 @@ public class LinkedListTest {
         list.add(2);
         list.add(3);
         System.out.println(list.toString());
+        list.clean();
+        System.out.println(list);
 //        list.walkTru();
 //        System.out.println(list.walkTru());
 
