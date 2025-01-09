@@ -8,14 +8,24 @@ public class LinkedListTest {
         LinkedList<Integer> list = new LinkedList<Integer>();
 
         list.add(1);
-        System.out.println("Linkedlist size: "+ list.getSize());
         list.add(2);
         list.add(3);
-        System.out.println(list.toString());
-        list.clean();
         System.out.println(list);
-//        list.walkTru();
-//        System.out.println(list.walkTru());
+        System.out.println("Linkedlist size: "+ list.getSize());
+//        list.clean();
+        System.out.println(list.getSize());
+        //Search for element
+        System.out.println(list.search(0));
+        System.out.println(list.search(1));
+        System.out.println(list.search(2));
+
+        System.out.println("----------------------");
+
+        //Search for position
+//        System.out.println(list.searchForPosition(2));
+        System.out.println(list.searchForPosition(0));
+        System.out.println(list.searchForPosition(1));
+
 
     }
 }

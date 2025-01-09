@@ -5,6 +5,7 @@ public class LinkedList<T> {
     private Node<T> init;
     private Node<T> last;
     private int size;
+    private final int NOT_FOUND = -1;
 
     public void add(T element){
         Node<T> cell = new Node<T>(element);
@@ -27,6 +28,43 @@ public class LinkedList<T> {
         this.init = null;
         this.last = null;
         this.size = 0;
+
+    }
+
+    private Node<T> searchNode(int position){
+        if(!(position >= 0 && position <= this.size)){
+            throw new IllegalArgumentException("Position does not exist");
+        }
+        Node<T> currentNode = this.init;
+        for (int i = 0; i < position; i++){
+            currentNode = currentNode.getNext();
+        }
+
+
+        return currentNode;
+    }
+
+    public T searchForPosition(int position){
+
+        return this.searchNode(position).getElement();
+
+    }
+
+    public int search(T element){
+
+        Node<T> currentNode = this.init;
+        int pos = 0;
+
+        while(currentNode != null){
+            if(currentNode.getElement().equals(element)){
+                return pos;
+            }
+
+            currentNode = currentNode.getNext();
+            pos++;
+        }
+
+        return NOT_FOUND;
     }
 
     public int getSize(){
