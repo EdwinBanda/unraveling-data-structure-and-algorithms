@@ -59,12 +59,29 @@ public class LinkedList<T> {
             if(currentNode.getElement().equals(element)){
                 return pos;
             }
-
             currentNode = currentNode.getNext();
             pos++;
         }
 
         return NOT_FOUND;
+    }
+
+    public void add(T element, int position){
+        if(position < 0 || position > this.size){
+            throw new IllegalArgumentException("Invalid Position!");
+        }else if(position == this.size){
+            this.add(element);
+        }
+        Node<T> currentNode = this.init;
+        Node<T> temp;
+        for( int i = 0; i < position-1; i++){
+            currentNode = currentNode.getNext();
+        }
+        Node<T> newNode = new Node<>(element);
+        temp = currentNode.getNext();
+        currentNode.setNext(newNode);
+        newNode.setNext(temp);
+        this.size++;
     }
 
     public int getSize(){
