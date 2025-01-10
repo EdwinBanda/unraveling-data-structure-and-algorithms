@@ -39,8 +39,6 @@ public class LinkedList<T> {
         for (int i = 0; i < position; i++){
             currentNode = currentNode.getNext();
         }
-
-
         return currentNode;
     }
 
@@ -82,6 +80,16 @@ public class LinkedList<T> {
         currentNode.setNext(newNode);
         newNode.setNext(temp);
         this.size++;
+    }
+
+    public void removeInit(){
+        if(this.size == 0){
+            throw new RuntimeException("List is empty!");
+        }
+        Node<T> primeNode = this.init;
+        this.init = this.init.getNext();
+        primeNode = null;
+        this.size--;
     }
 
     public int getSize(){

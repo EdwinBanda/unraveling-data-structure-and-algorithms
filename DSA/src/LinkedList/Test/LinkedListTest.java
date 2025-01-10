@@ -31,6 +31,8 @@ public class LinkedListTest {
         list.add(6,1);
         list.add(9,5);
         System.out.println(list);
+        list.removeInit();
+        System.out.println(list);
 
 
     }
