@@ -82,6 +82,7 @@ public class LinkedList<T> {
         this.size++;
     }
 
+    //Remove first element from the linked list
     public void removeInit(){
         if(this.size == 0){
             throw new RuntimeException("List is empty!");
@@ -89,6 +90,17 @@ public class LinkedList<T> {
         Node<T> primeNode = this.init;
         this.init = this.init.getNext();
         primeNode = null;
+        this.size--;
+    }
+
+    //Remove last element from the linked list
+    public void removeTail(){
+        Node<T> currentNode = this.init;
+        for(int i = 0; i <= this.size-2;i++){
+            currentNode = currentNode.getNext();
+        }
+        currentNode.setNext(null);
+        this.last = currentNode;
         this.size--;
     }
 

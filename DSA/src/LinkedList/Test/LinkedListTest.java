@@ -33,6 +33,8 @@ public class LinkedListTest {
         System.out.println(list);
         list.removeInit();
         System.out.println(list);
+        list.removeTail();
+        System.out.println(list);
 
 
     }
