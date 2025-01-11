@@ -34,8 +34,10 @@ public class LinkedListTest {
         list.removeInit();
         System.out.println(list);
         list.removeTail();
+        list.removeTail();
         System.out.println(list);
-
+        list.removeFromAny(2);
+        System.out.println(list);
 
     }
 }

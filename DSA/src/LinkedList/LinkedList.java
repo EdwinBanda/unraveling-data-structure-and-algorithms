@@ -6,6 +6,7 @@ public class LinkedList<T> {
     private Node<T> last;
     private int size;
     private final int NOT_FOUND = -1;
+    private final String NOT_EXIST = "Position does not exist!";
 
     public void add(T element){
         Node<T> cell = new Node<T>(element);
@@ -83,25 +84,59 @@ public class LinkedList<T> {
     }
 
     //Remove first element from the linked list
-    public void removeInit(){
+    public T removeInit(){
         if(this.size == 0){
             throw new RuntimeException("List is empty!");
         }
-        Node<T> primeNode = this.init;
+        T removed = this.init.getElement();
         this.init = this.init.getNext();
-        primeNode = null;
         this.size--;
+        if(this.size == 0){
+            this.last = null;
+        }
+        return removed;
     }
 
     //Remove last element from the linked list
-    public void removeTail(){
-        Node<T> currentNode = this.init;
-        for(int i = 0; i <= this.size-2;i++){
-            currentNode = currentNode.getNext();
+    public T removeTail(){
+        if(this.size == 0){
+            throw new RuntimeException("List is empty!");
         }
-        currentNode.setNext(null);
-        this.last = currentNode;
+        if(this.size == 1){
+            return this.removeInit();
+        }
+        Node<T> penultimate = this.searchNode(this.size-2);
+        T removed = penultimate.getNext().getElement();
+        penultimate.setNext(null);
+        this.last = penultimate;
         this.size--;
+
+        return removed;
+    }
+    public boolean positionNotExist(int pos){
+        return !(pos >= 0 && pos <= this.size);
+    }
+    //Remove from any position
+    public T removeFromAny(int position){
+
+        if(this.positionNotExist(position)){
+            throw new IllegalArgumentException(NOT_EXIST);
+        }
+        if(position == 0){
+            return this.removeInit();
+        }
+        if(position == this.size-1){
+            return this.removeTail();
+        }
+        Node<T> previousNode = this.searchNode(position-1);
+        Node<T> currentNode = previousNode.getNext();
+        Node<T> nextNode = currentNode.getNext();
+
+        previousNode.setNext(nextNode);
+        currentNode.setNext(null);
+        this.size--;
+
+        return currentNode.getElement();
     }
 
     public int getSize(){
