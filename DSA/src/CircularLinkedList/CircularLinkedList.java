@@ -44,6 +44,21 @@ public class CircularLinkedList<T> {
         return removed;
     }
 
+    //Add Node in tail position
+    public void addTail(T element){
+        Node<T> newest = new Node<>(element, null);
+        Node<T> temp;
+        if(this.size == 0){
+            this.tail = newest;
+            newest.setNext(tail);
+        }
+        temp = this.tail.getNext();
+        this.tail.setNext(newest);
+        newest.setNext(temp);
+        this.tail = newest;
+        size++;
+    }
+
     public String toString() {
         if(this.size == 0){
             return "[]";

@@ -16,6 +16,10 @@ public class CicleTest<T> {
         cycle.removeFirst();
         cycle.removeFirst();
 
+        cycle.addTail(5);
+        cycle.addTail(8);
+        cycle.addTail(11);
+
 
         System.out.println(cycle);
     }
