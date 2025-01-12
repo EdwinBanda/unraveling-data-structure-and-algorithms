@@ -8,7 +8,12 @@ public class CicleTest<T> {
         CircularLinkedList<Integer> cycle = new CircularLinkedList<Integer>();
 
         cycle.addFirst(2);
-        cycle.addFirst(2);
+        cycle.addFirst(3);
+//        cycle.addFirst(3);
+//        cycle.addFirst(1);
+//        cycle.addFirst(0);
+        cycle.clear();
+
         System.out.println(cycle);
     }
 }

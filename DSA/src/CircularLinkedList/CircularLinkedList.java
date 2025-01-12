@@ -1,7 +1,7 @@
 package CircularLinkedList;
 
 public class CircularLinkedList<T> {
-    private Node<T> tail = null;
+    private Node<T> tail;
     private int size;
 
     public int size(){
@@ -9,18 +9,31 @@ public class CircularLinkedList<T> {
     }
     //add element at first place
     public void addFirst(T element){
-        Node<T> newest = new Node<>(element);
+        Node<T> newest = new Node<>(element, null);
+        Node<T> temp;
         if(this.size == 0){
-            newest.setNext(newest);
             this.tail = newest;
-        }else{
-            this.tail.setNext(newest);
+            newest.setNext(tail);
         }
-        Node<T> head = tail.getNext();
-        tail.setNext(newest);
-        newest.setNext(head);
+        temp = this.tail.getNext();
+        this.tail.setNext(newest);
+        newest.setNext(temp);
         size++;
+    }
 
+    //Clean Cycle LinkedList
+    public void clear(){
+        if(this.size == 0){
+            throw new RuntimeException("List is empty!");
+        }
+        Node<T> currentNode = tail.getNext();
+        while (size > 0){
+            Node<T> next = currentNode.getNext();
+            currentNode.setNext(null);
+            currentNode = next;
+            size--;
+        }
+        tail = null;
     }
 
     public String toString() {

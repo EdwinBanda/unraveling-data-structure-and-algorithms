@@ -16,6 +16,7 @@ public class LinkedList<T> {
             this.last.setNext(cell);
         }
         this.last = cell;
+//        System.out.println(last);
         this.size++;
     }
 
