@@ -20,6 +20,7 @@ public class CicleTest<T> {
         cycle.addTail(8);
         cycle.addTail(11);
 
+        cycle.removeTail();
 
         System.out.println(cycle);
     }

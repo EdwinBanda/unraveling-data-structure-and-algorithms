@@ -59,6 +59,18 @@ public class CircularLinkedList<T> {
         size++;
     }
 
+    //Remove tail
+    public Node<T> removeTail(){
+        Node<T> currentNode = this.tail.getNext();
+        Node<T> removed = this.tail;
+        for (int i = 0; i <= this.size-1; i++){
+            Node<T> next = currentNode.getNext();
+            currentNode.setNext(next);
+        }
+        size--;
+        return removed;
+    }
+
     public String toString() {
         if(this.size == 0){
             return "[]";
