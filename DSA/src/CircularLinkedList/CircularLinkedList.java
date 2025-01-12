@@ -60,15 +60,22 @@ public class CircularLinkedList<T> {
     }
 
     //Remove tail
-    public Node<T> removeTail(){
+    public void removeTail(){
         Node<T> currentNode = this.tail.getNext();
-        Node<T> removed = this.tail;
-        for (int i = 0; i <= this.size-1; i++){
-            Node<T> next = currentNode.getNext();
-            currentNode.setNext(next);
+        for(int i = 0; i < this.size-2; i++){
+            currentNode = currentNode.getNext();
         }
+        Node<T> next = currentNode.getNext().getNext();
+        currentNode.setNext(next);
+        this.tail = currentNode;
         size--;
-        return removed;
+
+//        System.out.println(currentNode.getNext().getElement());
+    }
+
+    //Rotate
+    public void rotate(){
+        this.tail = tail.getNext();
     }
 
     public String toString() {
