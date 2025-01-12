@@ -9,10 +9,13 @@ public class CicleTest<T> {
 
         cycle.addFirst(2);
         cycle.addFirst(3);
-//        cycle.addFirst(3);
-//        cycle.addFirst(1);
-//        cycle.addFirst(0);
-        cycle.clear();
+        cycle.addFirst(3);
+        cycle.addFirst(1);
+        cycle.addFirst(0);
+//        cycle.clear();
+        cycle.removeFirst();
+        cycle.removeFirst();
+
 
         System.out.println(cycle);
     }

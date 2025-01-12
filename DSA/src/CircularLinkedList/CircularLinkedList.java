@@ -35,6 +35,14 @@ public class CircularLinkedList<T> {
         }
         tail = null;
     }
+    //Remove First Node
+    public Node<T> removeFirst(){
+        Node<T> removed = tail.getNext();
+        tail.setNext(removed.getNext());
+        removed.setNext(null);
+        size--;
+        return removed;
+    }
 
     public String toString() {
         if(this.size == 0){
