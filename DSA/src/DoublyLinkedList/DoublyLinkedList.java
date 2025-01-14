@@ -19,18 +19,58 @@ public class DoublyLinkedList<T> {
         return size == 0;
     }
 
-    
-
-    public void addFirst(T element){
-        Node<T> newest = new Node<>(element);
-        if(this.isEmpty()){
-            header.setNext(newest);
-            trailer.setPrevious(newest);
-        }
+    public Node<T> addFirst(T element){
         Node<T> nextToHeader = header.getNext();
+        Node<T> newest = new Node<T>(element, header, nextToHeader);
         header.setNext(newest);
-        newest.setNext(nextToHeader);
+        nextToHeader.setPrevious(newest);
         this.size++;
+        return newest;
+    }
+
+    public void addLast(T element){
+        Node<T> previousTrailer = trailer.getPrevious();
+        Node<T> newest = new Node<T>(element, previousTrailer, trailer);
+        previousTrailer.setNext(newest);
+        trailer.setPrevious(newest);
+        size++;
+    }
+
+    public void removeFirst(){
+        if(this.isEmpty()){
+            throw new RuntimeException("List is empty!");
+        }
+        Node<T> toRemove = header.getNext();
+        header.setNext(toRemove.getNext());
+        toRemove.getNext().setPrevious(header);
+        size--;
+    }
+
+    public void removeLast(){
+        if(this.isEmpty()){
+            throw new RuntimeException("List is empty");
+        }
+        Node<T> toRemove = trailer.getPrevious();
+        trailer.setPrevious(toRemove.getPrevious());
+        toRemove.getPrevious().setNext(trailer);
+        size--;
+    }
+
+    public void addInAnyPos(T element, int position){
+        if(!(position > 0 && position < this.size)){
+            throw new IllegalArgumentException("Position does not exist!");
+        }
+        Node<T> newest = new Node<>(element);
+        Node<T> currentNode = header.getNext();
+        for(int i = 0; i < position-1; i++){
+            currentNode = currentNode.getNext();
+        }
+        Node<T> nextToCurrent = currentNode.getNext();
+        newest.setNext(nextToCurrent);
+        nextToCurrent.setPrevious(newest);
+        newest.setPrevious(currentNode);
+        currentNode.setNext(newest);
+        size++;
     }
 
     public String toString(){

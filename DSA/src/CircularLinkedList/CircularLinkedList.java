@@ -4,20 +4,17 @@ public class CircularLinkedList<T> {
     private Node<T> tail;
     private int size;
 
+//    public CircularLinkedList(){
+//        tail = new Node<T>(null, null);
+//    }
+
     public int size(){
         return size;
     }
     //add element at first place
     public void addFirst(T element){
-        Node<T> newest = new Node<>(element, null);
-        Node<T> temp;
-        if(this.size == 0){
-            this.tail = newest;
-            newest.setNext(tail);
-        }
-        temp = this.tail.getNext();
-        this.tail.setNext(newest);
-        newest.setNext(temp);
+        Node<T> newest = new Node<T>(element);
+        tail.setNext(newest);
         size++;
     }
 
@@ -46,17 +43,10 @@ public class CircularLinkedList<T> {
 
     //Add Node in tail position
     public void addTail(T element){
-        Node<T> newest = new Node<>(element, null);
-        Node<T> temp;
-        if(this.size == 0){
-            this.tail = newest;
-            newest.setNext(tail);
-        }
-        temp = this.tail.getNext();
-        this.tail.setNext(newest);
-        newest.setNext(temp);
-        this.tail = newest;
+        Node<T> newest = new Node<T>(element, tail.getNext());
+        tail.setNext(newest);
         size++;
+
     }
 
     //Remove tail
@@ -70,7 +60,10 @@ public class CircularLinkedList<T> {
         this.tail = currentNode;
         size--;
 
-//        System.out.println(currentNode.getNext().getElement());
+    }
+
+    public void addInAnyPos(int position){
+
     }
 
     //Rotate
@@ -84,7 +77,7 @@ public class CircularLinkedList<T> {
         }
         StringBuilder builder = new StringBuilder("[");
         Node<T> current = this.tail.getNext();
-        for(int i = 0; i < this.size - 1; i++){
+        for(int i = 0; i < this.size-1; i++){
             builder.append(current.getElement()).append(",");
             current = current.getNext();
         }

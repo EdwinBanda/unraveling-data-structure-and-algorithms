@@ -12,18 +12,18 @@ public class CicleTest<T> {
         cycle.addFirst(3);
         cycle.addFirst(1);
         cycle.addFirst(0);
-//        cycle.clear();
-//        cycle.removeFirst();
-//        cycle.removeFirst();
-
-        cycle.addTail(5);
-        cycle.addTail(8);
-        cycle.addTail(11);
-
-        cycle.removeTail();
-        cycle.removeTail();
-        cycle.rotate();
-        cycle.rotate();
+////        cycle.clear();
+////        cycle.removeFirst();
+////        cycle.removeFirst();
+//
+//        cycle.addTail(5);
+//        cycle.addTail(8);
+//        cycle.addTail(11);
+//
+//        cycle.removeTail();
+//        cycle.removeTail();
+//        cycle.rotate();
+//        cycle.rotate();
 
         System.out.println(cycle);
     }
