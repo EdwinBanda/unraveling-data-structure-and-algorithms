@@ -24,7 +24,6 @@ public class CicleTest<T> {
         cycle.removeTail();
         cycle.rotate();
         cycle.rotate();
-        cycle.rotate();
 
         System.out.println(cycle);
     }
