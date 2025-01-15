@@ -4,17 +4,22 @@ public class CircularLinkedList<T> {
     private Node<T> tail;
     private int size;
 
-//    public CircularLinkedList(){
-//        tail = new Node<T>(null, null);
-//    }
+    public CircularLinkedList(){
+        tail = new Node<T>(null, null);
+    }
 
     public int size(){
         return size;
     }
     //add element at first place
     public void addFirst(T element){
-        Node<T> newest = new Node<T>(element);
-        tail.setNext(newest);
+        if(size == 0){
+            tail = new Node<>(element, null);
+            tail.setNext(tail);
+        }else {
+            Node<T> newest = new Node<T>(element, tail.getNext());
+            tail.setNext(newest);
+        }
         size++;
     }
 
@@ -43,10 +48,8 @@ public class CircularLinkedList<T> {
 
     //Add Node in tail position
     public void addTail(T element){
-        Node<T> newest = new Node<T>(element, tail.getNext());
-        tail.setNext(newest);
-        size++;
-
+        addFirst(element);
+        rotate();
     }
 
     //Remove tail
@@ -68,7 +71,10 @@ public class CircularLinkedList<T> {
 
     //Rotate
     public void rotate(){
-        this.tail = tail.getNext();
+        if(tail != null){
+            this.tail = tail.getNext();
+
+        }
     }
 
     public String toString() {
