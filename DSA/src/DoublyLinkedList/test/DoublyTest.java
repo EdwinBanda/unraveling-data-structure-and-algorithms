@@ -12,6 +12,6 @@ public class DoublyTest {
 //        doubly.removeFirst();
 //        doubly.removeLast();
         doubly.addInAnyPos(9, 3);
-        System.out.println(doubly);
+        System.out.println(doubly.searchElementByPos(2));
     }
 }

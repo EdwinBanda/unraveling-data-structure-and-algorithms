@@ -16,15 +16,17 @@ public class CicleTest<T> {
 ////        cycle.removeFirst();
 ////        cycle.removeFirst();
 //
-        cycle.addTail(5);
+//        cycle.addTail(5);
 //        cycle.addTail(8);
 //        cycle.addTail(11);
 //
-        cycle.removeTail();
+//        cycle.removeTail();
 //        cycle.removeTail();
 //        cycle.rotate();
 //        cycle.rotate();
+        cycle.addInAnyPos(4,2);
 
-        System.out.println(cycle);
+
+        System.out.println(cycle.searchByPos(1));
     }
 }

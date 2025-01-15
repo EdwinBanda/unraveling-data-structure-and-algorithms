@@ -73,6 +73,17 @@ public class DoublyLinkedList<T> {
         size++;
     }
 
+    public T searchElementByPos(int pos){
+        if(!(pos > 0 && pos < this.size)){
+            throw new IllegalArgumentException("Invalid position!");
+        }
+        Node<T> currentNode = header.getNext();
+        for(int i = 0; i < pos; i++){
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.getElement();
+    }
+
     public String toString(){
         StringBuilder builder = new StringBuilder();
         if(this.size == 0){

@@ -65,8 +65,22 @@ public class CircularLinkedList<T> {
 
     }
 
-    public void addInAnyPos(int position){
+    public void addInAnyPos(T element, int position){
+        Node<T> newest = new Node<>(element);
+        Node<T> currentNode = tail.getNext();
+        for(int i = 0; i < position-1; i++){
+            currentNode = currentNode.getNext();
+        }
+        newest.setNext(currentNode.getNext());
+        currentNode.setNext(newest);
+    }
 
+    public T searchByPos(int position){
+        Node<T> currentNode = tail.getNext();
+        for(int i = 0; i < position; i++){
+            currentNode = currentNode.getNext();
+        }
+        return currentNode.getElement();
     }
 
     //Rotate
