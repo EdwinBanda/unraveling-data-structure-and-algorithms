@@ -1,55 +1,53 @@
 package Map;
 
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class MyMap<K, V>{
-    private List<Entry<K, V>> entries;
+    private List<Entry<K, V>> entries = new ArrayList<>();
     private int size;
 
-    public MyMap(){
-        this.entries = new ArrayList<>();
+    public int size(){
+        return this.size;
     }
 
-    public int size(){
-        return size;
-    }
     public boolean isEmpty(){
-        return this.size() == 0;
+        return size() == 0;
     }
-    //Get entry
+
+    //Gets a corresponding value of a certain key
     public V get(K key){
         if(isEmpty()){
             throw new IllegalArgumentException("Its empty!");
         }
         for(Entry<K, V> entry: entries){
-            if(entry.getKey().equals(key)){
+            if(key.equals(key)){
                 return entry.getValue();
             }
         }
         return null;
     }
-    //Add entry
+    //Adds entry inside the HashMap
     public void put(K key, V value){
-        for(Entry<K, V> entry: entries){
-            if(entry.getKey().equals(key)){
-                entry.setKey(key);
-                return;
-            }
-        }
-        entries.add(new Entry<>(key,value));
-    }
-    //Remove entry
-    public void remove(K key){
-        entries.removeIf(entry -> entry.getKey().equals(key));
+        Entry<K, V> element = new Entry<>(key, value);
+        entries.add(element);
     }
 
-    @Override
-    public String toString() {
-        return "MyMap{" +
-                "entries=" + entries +
-                ", size=" + size +
-                '}';
+    //Removes entry from the hashMap
+    public void remove(K key){
+        entries.removeIf(kvEntry -> kvEntry.getKey().equals(key));
+    }
+
+    public String toString(){
+        StringBuilder builder = new StringBuilder("{");
+        int i = 0;
+        while (i <= entries.size()-2){
+            builder.append(entries.get(i).getKey()).append(" = ").append(entries.get(i).getValue()).append(", ");
+            i++;
+        }
+        builder.append(entries.get(i).getKey()).append(" = ").append(entries.get(i).getValue());
+        builder.append("}");
+        return builder.toString();
     }
 }
