@@ -1,4 +1,6 @@
-package Map;
+package Map.HashMap;
+
+import Map.MyMap;
 
 public class MapTest {
     public static void main(String[] args) {
