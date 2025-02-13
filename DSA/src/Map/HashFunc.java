@@ -1,5 +1,6 @@
 package Map;
 
+
 public class HashFunc {
     public static int hasher(String s){
         int h = 0;
