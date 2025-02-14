@@ -10,5 +10,7 @@ public class TestSeparateChainning {
         mapper.put("Three", 3);
         mapper.put("Four", 4);
         System.out.println(mapper);
+        System.out.println("One".hashCode());
+        System.out.println("Four".hashCode());
     }
 }

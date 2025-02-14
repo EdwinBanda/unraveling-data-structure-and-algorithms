@@ -33,7 +33,6 @@ public class HashTableSeparateChainning {
 
         if(table[index] == null){
             table[index] = entry;
-//            this.size++;
         }else{
             //Collision Case
             HashtableNode currentNode = table[index];
@@ -64,14 +63,15 @@ public class HashTableSeparateChainning {
     public String toString(){
         StringBuilder builder = new StringBuilder("[");
         for(int i = 0; i < this.size; i++){
-            HashtableNode index = table[i];
-            if(index != null){
+            HashtableNode element = table[i];
+            if(element != null){
+                builder.append(element);
                 builder.append(": {");
-                while (index.getNext() != null){
-                    builder.append(index);
-                    index = index.getNext();
-                    if(index != null){
-                        builder.append(" -> ");
+                while (element.getNext() != null){
+//                    builder.append(element);
+                    element = element.getNext();
+                    if(element != null){
+//                        builder.append(" -> ");
                     }
                 }
                 builder.append("}, ");
@@ -80,7 +80,7 @@ public class HashTableSeparateChainning {
         if (builder.length() > 1) {
             builder.setLength(builder.length() - 2);
         }
-        
+
         builder.append("]");
         return builder.toString();
     }
